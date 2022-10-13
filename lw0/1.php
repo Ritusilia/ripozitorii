@@ -15,7 +15,7 @@ function calculator(string $expressionString): float
         if (!(in_array($keyArray, $checklistSigns) && in_array($keyArray, $checklistNums))) {
             $correctExpression .= $keyArray;
         } else {
-        return 'Incorrect input';
+            return 'Incorrect input';
         }
     }
     return eval('return ' . $correctExpression . ';');
