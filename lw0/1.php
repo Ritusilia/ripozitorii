@@ -6,7 +6,7 @@ function calculator(string $expressionString): float
     $correctExpression = '';
 
     if (strpos($expressionString, '/0')) {
-        exit('Incorrect input');
+        return 'Incorrect input';
     } else {
         $numericalExpressionArray = str_split($expressionString);
     }
@@ -15,7 +15,7 @@ function calculator(string $expressionString): float
         if (!(in_array($keyArray, $checklistSigns) && in_array($keyArray, $checklistNums))) {
             $correctExpression .= $keyArray;
         } else {
-            return 'Incorrect input';
+        return 'Incorrect input';
         }
     }
     return eval('return ' . $correctExpression . ';');
