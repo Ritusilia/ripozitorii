@@ -15,10 +15,10 @@ function calculator(string $expressionString): float
         if (!(in_array($keyArray, $checklistSigns) && in_array($keyArray, $checklistNums))) {
             $correctExpression .= $keyArray;
         } else {
-            exit('Incorrect input');
+            return 'Incorrect input';
         }
     }
     return eval('return ' . $correctExpression . ';');
 }
 
-echo calculator('1+2*3');
+echo calculator('2+6*3');
