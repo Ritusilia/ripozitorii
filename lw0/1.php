@@ -7,14 +7,13 @@ function calculator(string $expressionString): float
 
     if (strpos($expressionString, '/0')) {
         exit('Incorrect input');
+    } else {
+        $numericalExpressionArray = str_split($expressionString);
     }
-    else {
-    	$numericalExpressionArray = str_split($expressionString);
-    }
-    
+
     foreach ($numericalExpressionArray as $keyArray) {
         if (!(in_array($keyArray, $checklistSigns) && in_array($keyArray, $checklistNums))) {
-                $correctExpression .= $keyArray;
+            $correctExpression .= $keyArray;
         } else {
             exit('Incorrect input');
         }
