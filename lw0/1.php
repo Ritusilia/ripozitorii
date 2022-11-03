@@ -21,4 +21,4 @@ function calculator(string $expressionString): float
     return eval('return ' . $correctExpression . ';');
 }
 
-echo calculator('2+6*3');
+echo calculator('13+6*3');

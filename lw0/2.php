@@ -6,4 +6,4 @@ function sumTime(string $oneTime, string $twoTime): string
     }
     return date('H:i:s', strtotime($oneTime) + strtotime($twoTime));
 }
-echo sumTime('23:20:30', '10:20:30');
+echo sumTime('24:25:32', '24:22:30');
