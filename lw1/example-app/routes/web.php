@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,25 +14,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('home', [
-        'bookone' => 'Под куполом ',
-        'discriptionone' =>'роман Стивена Кинга, опубликованный в США 10 ноября 2009 года. 
-        Роман является переработанной идеей, с которой Кинг работал уже дважды, в конце 1970-х годов и в начале 1980-х 
-        — изначально под названием «Под куполом», а потом «Каннибалы» (англ. The Cannibals). Оба раза автор забрасывал работу, 
-        возвратившись к этому материалу лишь во второй половине 2000-х годов.',
-        'booktwo' => 'Кэрри',
-        'discriptiontwo' =>' первый опубликованный роман американского писателя Стивена Кинга, написанный в жанре
-        мистического ужаса. Произведение было выпущено в 1974 году издательством Doubleday. Сюжет романа повествует
-        о затравленной школьнице по имени Кэрри Уайт, открывшей с первой менструацией в себе способности к телекинезу.
-        Основываясь на сказке о Золушке, повествование затрагивает тематику религиозного фанатизма и подростковой 
-        жестокости.',
-        'bookthree' => 'Бессонница',
-        'discriptionthree' =>'У старика по имени Ральф Робертс начинается бессонница. Он пробует все возможные 
-        средства от неё, но с каждым днём спит всё меньше и меньше. Наконец, у него начинается нечто вроде 
-        галлюцинаций — он видит ауры людей, видит то, что обычные люди не видят… видит трёх «маленьких лысых 
-        врачей», которые приходят к людям, чтобы забрать их из жизни...',  
-       
-    ]);
-});
+Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
+Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+Route::get('/articles/{article}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
+Route::put('/articles/{article}', [ArticleController::class, 'update'])->name('articles.update');
+Route::delete('articles/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
+Route::get('/articles/{article}/show', [ArticleController::class, 'show'])->name('articles.show');
